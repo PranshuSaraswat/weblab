@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box</title>
+    <style type="text/css">
+        .container{
+            border:5px solid rgb(129, 129, 244);
+            padding: 5px  ;
+            margin: -10px ;
+            height: 300px ;
+        }
+        .banner{
+            border:5px solid rgb(214, 58, 253);
+            margin-top: -15px;
+        }
+        .nav{
+            border: 5px solid greenyellow;
+            flex-direction: column;
+            margin: 5px;
+            height: 100px;
+
+        }
+        .content{
+            border: 5px solid orange;
+            flex-direction: column;
+            margin:5px;
+            width: 1450px;
+
+        }
+        .sub{
+            display: flex;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p>#container</p>
+        <div class="banner" id="one">#banner</div>
+        <div class="sub">
+            <div class="nav" id="two">#nav</div>
+            <div class="content">#content</div>
+        </div>
+        <div class="footer">#footer</div>
+    </div>
+</body>
+</html>
