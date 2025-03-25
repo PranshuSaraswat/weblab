@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Form</title>
+</head>
+<body>
+    <form>
+        
+        <fieldset>
+            <legend>Customer Info</legend>
+            
+            <label for="name">Name:</label>
+            <input type="text" placeholder="Enter your name" required autofocus>
+            <br><br>
+            
+            <label for="telephone">Telephone:</label>
+            <input type="tel"  placeholder="123-456-7890"  required autofocus>
+            <br><br>
+            
+            <label for="email">Email Address:</label>
+            <input type="email" placeholder="Enter your email" multiple required>
+            <br><br>
+        </fieldset>
+        
+        <fieldset>
+            <legend>Books</legend>
+            
+            <label for="book">Book:</label>
+            <input list="books" id="book" name="book">
+            <datalist id="books">
+                <option value="book1">
+                <option value="book2">
+                <option value="book3">
+                <option value="book4">
+                <option value="book5">
+            </datalist>
+            <br><br>
+            
+            <label for="quantity">Quantity (Maximum 5):</label>
+            <input type="number"  min="1" max="5" required>
+            <br><br>
+        </fieldset>
+        
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

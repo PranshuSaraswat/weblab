@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Box Model Layout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+        }
+        .header {
+            padding: 10px;
+            font-size: 24px;
+            font-weight: bold;
+            border-bottom: 2px solid red;
+        }
+        .nav {
+            padding: 10px;
+            border-right: 2px solid blue;
+            float: left;
+            width: 20%;
+        }
+        .nav a {
+            display: block;
+            text-decoration: none;
+            color: blue;
+            margin: 5px 0;
+        }
+        .content {
+            padding: 10px;
+            float: left;
+            width: 75%;
+            border-left: 2px solid green;
+        }
+        .content .box {
+            padding: 10px;
+            border: 2px solid red;
+            margin-top: 10px;
+        }
+        .footer {
+            clear: both;
+            text-align: left;
+            padding: 10px;
+            border-top: 2px solid red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="logo.png" alt="Logo" width="50">
+            Web Programming
+        </div>
+        <div class="nav">
+            <a href="webpage.html">Home</a>
+            <a href="wdknqidbi">Contact</a>
+        </div>
+        <div class="content">
+            <div class="box">
+                <h3>CSS Box Model</h3>
+                <p>The CSS margin properties dictate the spacing between elements on a web page. They are typically used to offset content to create an indented or centered effect.</p>
+            </div>
+        </div>
+        <div class="footer">
+            Copyright info here
+        </div>
+    </div>
+</body>
+</html>
