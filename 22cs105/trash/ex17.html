@@ -32,7 +32,7 @@
             const birthYear = currentYear - age;
 
             const resultsDiv = document.getElementById("results");
-            resultsDiv.innerHTML = `<p>Name: ${name}</p><p>Birth Year: ${birthYear}</p><p><a href="https://www.google.com/search?q=${encodeURIComponent(hometown)}" target="_blank">Search ${hometown} on Google</a></p>`;
+            resultsDiv.innerHTML = `<p>Name: ${name}</p><p>Birth Year: ${birthYear}</p><p><a href="https://www.google.pl/maps/place/=${encodeURIComponent(hometown)}" target="_blank">Search ${hometown} on Google</a></p>`;
         }
     </script>
 </body>
