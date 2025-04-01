@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Operations</title>
+</head>
+<body>
+    <h1>Number Operations</h1>
+
+    <form id="numberForm">
+        <label for="operationType">Choose Operation:</label>
+        <select id="operationType" onchange="toggleInputs()">
+            <option value="single">Single Number Calculations</option>
+            <option value="double">Percentage Calculation</option>
+        </select><br><br>
+
+        <div id="singleNumberInputs">
+            <label for="inputNumber">Enter a number:</label>
+            <input type="number" id="inputNumber">
+        </div>
+
+        <div id="doubleNumberInputs" style="display: none;">
+            <label for="inputNum1">Enter first number:</label>
+            <input type="number" id="inputNum1"><br><br>
+            <label for="inputNum2">Enter second number:</label>
+            <input type="number" id="inputNum2">
+        </div>
+
+        <button type="button" onclick="performCalculations()">Perform Calculations</button>
+    </form>
+
+    <div id="results"></div>
+
+    <script>
+        function squareNumber(number) {
+            return number * number;
+        }
+
+        function halfNumber(number) {
+            return number / 2;
+        }
+
+        function percentOf(num1, num2) {
+            return (num1 / num2) * 100;
+        }
+
+        function areaOfCircleRounded(radius) {
+            const area = Math.PI * radius * radius;
+            return parseFloat(area.toFixed(2));
+        }
+
+        function performCalculations() {
+            const operationType = document.getElementById("operationType").value;
+            const resultsDiv = document.getElementById("results");
+            resultsDiv.innerHTML = ""; // Clear previous results
+
+            if (operationType === "single") {
+                const inputNumber = parseFloat(document.getElementById("inputNumber").value);
+
+                if (isNaN(inputNumber)) {
+                    resultsDiv.textContent = "Please enter a valid number.";
+                    return;
+                }
+
+                const halfResult = halfNumber(inputNumber);
+                const squaredResult = squareNumber(halfResult);
+                const circleArea = areaOfCircleRounded(squaredResult);
+                const percentage = percentOf(circleArea, squaredResult);
+
+                resultsDiv.innerHTML = `
+                    <p>Half: ${halfResult}</p>
+                    <p>Squared Half: ${squaredResult}</p>
+                    <p>Circle Area (Rounded): ${circleArea}</p>
+                    <p>Percentage of Area: ${percentage}%</p>
+                `;
+            } else if (operationType === "double") {
+                const num1 = parseFloat(document.getElementById("inputNum1").value);
+                const num2 = parseFloat(document.getElementById("inputNum2").value);
+
+                if (isNaN(num1) || isNaN(num2)) {
+                    resultsDiv.textContent = "Please enter valid numbers.";
+                    return;
+                }
+
+                const percentage = percentOf(num1, num2);
+
+                resultsDiv.innerHTML = `<p>${num1} is ${percentage}% of ${num2}.</p>`;
+            }
+        }
+
+        function toggleInputs() {
+            const operationType = document.getElementById("operationType").value;
+            const singleInputs = document.getElementById("singleNumberInputs");
+            const doubleInputs = document.getElementById("doubleNumberInputs");
+
+            if (operationType === "single") {
+                singleInputs.style.display = "block";
+                doubleInputs.style.display = "none";
+            } else if (operationType === "double") {
+                singleInputs.style.display = "none";
+                doubleInputs.style.display = "block";
+            }
+        }
+
+        // Initialize input visibility on page load
+        toggleInputs();
+    </script>
+</body>
+</html>

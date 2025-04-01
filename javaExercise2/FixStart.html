@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>fixStart Function</title>
+</head>
+<body>
+
+<h2>fixStart Function</h2>
+
+<label for="inputString">Enter a string:</label><br>
+<input type="text" id="inputString" name="inputString"><br><br>
+
+<button onclick="displayFixStart()">Fix Start</button>
+
+<p id="result"></p>
+
+<script>
+function fixStart(str) {
+  if (str.length < 2) {
+    return str;
+  }
+
+  const firstChar = str[0];
+  let result = firstChar;
+
+  for (let i = 1; i < str.length; i++) {
+    if (str[i] === firstChar) {
+      result += '*';
+    } else {
+      result += str[i];
+    }
+  }
+
+  return result;
+}
+
+function displayFixStart() {
+  const inputStr = document.getElementById("inputString").value;
+  const fixedStr = fixStart(inputStr);
+  document.getElementById("result").innerText = "Result: " + fixedStr;
+}
+</script>
+
+</body>
+</html>

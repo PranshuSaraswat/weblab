@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>mixUp Function</title>
+<script>
+function mixUp(str1, str2) {
+  const first2Str1 = str1.substring(0, 2);
+  const first2Str2 = str2.substring(0, 2);
+  const restStr1 = str1.substring(2);
+  const restStr2 = str2.substring(2);
+  return first2Str2 + restStr1 + ' ' + first2Str1 + restStr2;
+}
+
+function displayMixUp() {
+  const str1 = document.getElementById("string1").value;
+  const str2 = document.getElementById("string2").value;
+  const result = mixUp(str1, str2);
+  document.getElementById("result").innerText = "Result: " + result;
+}
+</script>
+</head>
+<body>
+
+<h2>MixUp Strings</h2>
+
+<form id="mixUpForm">
+  <label for="string1">String 1:</label><br>
+  <input type="text" id="string1" name="string1" required><br><br>
+
+  <label for="string2">String 2:</label><br>
+  <input type="text" id="string2" name="string2" required><br><br>
+
+  <button type="button" onclick="displayMixUp()">MixUp</button>
+</form>
+
+<p id="result"></p>
+
+</body>
+</html>
