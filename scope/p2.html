@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Local vs. Global Variables</title>
+</head>
+<body>
+
+<h1>Local Variables Have Priority</h1>
+
+<p id="output"></p>
+
+<script>
+// Global variable
+let globalVar = "I am a global variable";
+
+function myFunction() {
+  // Local variable with the same name
+  let globalVar = "I am a local variable";
+
+  // Accessing the local variable
+  document.getElementById("output").textContent += "Inside myFunction: " + globalVar + "<br>";
+}
+
+// Calling the function
+myFunction();
+
+// Accessing the global variable outside the function
+document.getElementById("output").textContent += "Outside myFunction: " + globalVar + "<br>";
+
+function anotherFunction() {
+  // Accessing the global variable (no local variable with the same name)
+  document.getElementById("output").textContent += "Inside anotherFunction: " + globalVar + "<br>";
+}
+
+anotherFunction();
+</script>
+
+</body>
+</html>
