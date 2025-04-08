@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Top Choices</title>
+</head>
+<body>
+  <h2>My Top Choices</h2>
+  <button onclick="showChoices()">Show Choices</button>
+  <ul id="result"></ul>
+
+  <script>
+    function getSuffix(num) {
+      if (num % 100 >= 11 && num % 100 <= 13) return num + "th";
+      switch (num % 10) {
+        case 1: return num + "st";
+        case 2: return num + "nd";
+        case 3: return num + "rd";
+        default: return num + "th";
+      }
+    }
+
+    function showChoices() {
+      const choices = ["Blue", "Green", "Red", "Yellow", "Black"];
+      const list = document.getElementById("result");
+      list.innerHTML = ""; // Clear previous list
+
+      for (let i = 0; i < choices.length; i++) {
+        const suffix = getSuffix(i + 1);
+        const listItem = document.createElement("li");
+        listItem.textContent = `My ${suffix} choice is ${choices[i]}.`;
+        list.appendChild(listItem);
+      }
+    }
+  </script>
+</body>
+</html>

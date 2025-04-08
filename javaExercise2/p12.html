@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cash Register</title>
+</head>
+<body>
+  <h2>Shopping Cart</h2>
+  <ul id="itemList"></ul>
+  <h3 id="totalPrice"></h3>
+
+  <script>
+    var cartForParty = {  
+      banana: "1.25",
+      handkerchief: ".99",
+      Tshirt: "25.01",
+      apple: "0.60",
+      nalgene: "10.34",
+      proteinShake: "22.36"
+    };
+
+    function cashRegister(cart) {
+      let total = 0;
+      let itemList = document.getElementById("itemList");
+
+      for (let item in cart) {
+        let price = parseFloat(cart[item]);
+        total += price;
+
+        // Create a list item for each product
+        let li = document.createElement("li");
+        li.textContent = `${item}: $${price.toFixed(2)}`;
+        itemList.appendChild(li);
+      }
+
+      return total;
+    }
+
+    document.getElementById("totalPrice").textContent = "Total: $" + cashRegister(cartForParty).toFixed(2);
+  </script>
+</body>
+</html>

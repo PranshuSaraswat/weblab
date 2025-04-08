@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>The Pluralizer</title>
+</head>
+<body>
+  <h2>The Pluralizer</h2>
+
+  <input type="text" id="noun" placeholder="Enter a noun (e.g. cat)">
+  <input type="number" id="number" placeholder="Enter a number">
+  <button onclick="pluralize()">Pluralize</button>
+
+  <p id="result"></p>
+
+  <script>
+    function pluralize(noun, number) {
+      const irregularNouns = {
+        sheep: "sheep",
+        goose: "geese",
+        person: "people",
+        child: "children",
+        mouse: "mice"
+      };
+
+      let pluralForm;
+
+      if (number === 1) {
+        pluralForm = noun;
+      } else if (irregularNouns[noun]) {
+        pluralForm = irregularNouns[noun];
+      } else {
+        pluralForm = noun + "s";
+      }
+
+      return `${number} ${pluralForm}`;
+    }
+
+    function pluralize() {
+      const nounInput = document.getElementById("noun").value.trim().toLowerCase();
+      const numberInput = parseInt(document.getElementById("number").value);
+
+      if (!nounInput || isNaN(numberInput)) {
+        document.getElementById("result").innerText = "Please enter both a noun and a valid number.";
+        return;
+      }
+
+      const result = pluralizeWord(nounInput, numberInput);
+      document.getElementById("result").innerText = result;
+    }
+
+    function pluralizeWord(noun, number) {
+      const irregulars = {
+        sheep: "sheep",
+        goose: "geese",
+        person: "people",
+        child: "children",
+        mouse: "mice"
+      };
+
+      let plural = "";
+
+      if (number === 1) {
+        plural = noun;
+      } else if (irregulars[noun]) {
+        plural = irregulars[noun];
+      } else {
+        plural = noun + "s";
+      }
+
+      return `${number} ${plural}`;
+    }
+
+    console.log(pluralizeWord("cat", 5));     
+    console.log(pluralizeWord("dog", 1));         
+console.log(pluralizeWord("sheep", 3));   
+    console.log(pluralizeWord("goose", 2));    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Verbing Function</title>
+</head>
+<body>
+  <h2>Verbing</h2>
+  <input type="text" id="inputStr" placeholder="Enter a verb">
+  <button onclick="verbing()">Convert</button>
+
+  <p id="result"></p>
+
+  <script>
+    function verbing() {
+      const str = document.getElementById("inputStr").value;
+
+      let result = "";
+
+      if (str.length >= 3) {
+        if (str.endsWith("ing")) {
+          result = str + "ly";
+        } else {
+          result = str + "ing";
+        }
+      } else {
+        result = str;
+      }
+
+      document.getElementById("result").innerText = result;
+    }
+  </script>
+</body>
+</html>

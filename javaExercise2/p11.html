@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Movie Database</title>
+</head>
+<body>
+  <h2>My Favorite Movie</h2>
+  <div id="movieInfo"></div>
+
+  <script>
+    const movie = {
+      title: "Puff the Magic Dragon",
+      duration: 30,
+      stars: ["Puff", "Jackie", "Living Sneezes"]
+    };
+
+    function printMovie(movieObj) {
+      const info = `${movieObj.title} lasts for ${movieObj.duration} minutes. Stars: ${movieObj.stars.join(", ")}.`;
+      document.getElementById("movieInfo").textContent = info;
+    }
+
+    printMovie(movie);
+  </script>
+</body>
+</html>

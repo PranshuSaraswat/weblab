@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Reading List</title>
+</head>
+<body>
+  <h2>My Reading List</h2>
+  <div id="bookList"></div>
+
+  <script>
+    const books = [
+      {
+        title: "Sapiens",
+        author: "Yuval Noah Harari",
+        alreadyRead: true
+      },
+      {
+        title: "Atomic Habits",
+        author: "James Clear",
+        alreadyRead: false
+      },
+      {
+        title: "Educated",
+        author: "Tara Westover",
+        alreadyRead: true
+      },
+      {
+        title: "The Alchemist",
+        author: "Paulo Coelho",
+        alreadyRead: false
+      }
+    ];
+
+    const bookList = document.getElementById("bookList");
+
+    books.forEach(book => {
+      const message = book.alreadyRead
+        ? `You already read "${book.title}" by ${book.author}.`
+        : `You still need to read "${book.title}" by ${book.author}.`;
+      const para = document.createElement("p");
+      para.textContent = message;
+      bookList.appendChild(para);
+    });
+  </script>
+</body>
+</html>

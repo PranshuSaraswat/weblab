@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Credit Card Validator</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    input, button { padding: 10px; font-size: 16px; }
+    #result { margin-top: 20px; font-weight: bold; }
+  </style>
+</head>
+<body>
+
+  <h2>Credit Card Validator</h2>
+  <input type="text" id="cardNumber" placeholder="Enter card number (e.g. 1234-5678-9012-3456)" />
+  <button onclick="checkCard()">Validate</button>
+
+  <div id="result"></div>
+
+  <script>
+    function validateCreditCard(cardNumber) {
+      const cleanNumber = cardNumber.replace(/-/g, '');
+
+      if (cleanNumber.length !== 16) {
+        return { valid: false, number: cardNumber, error: 'wrong_length' };
+      }
+
+      if (!/^\d+$/.test(cleanNumber)) {
+        return { valid: false, number: cardNumber, error: 'invalid_characters' };
+      }
+
+      const digits = cleanNumber.split('').map(Number);
+      const uniqueDigits = new Set(digits);
+      if (uniqueDigits.size === 1) {
+        return { valid: false, number: cardNumber, error: 'all_same_digits' };
+      }
+
+      if (digits[15] % 2 !== 0) {
+        return { valid: false, number: cardNumber, error: 'odd_final_digit' };
+      }
+
+      const sum = digits.reduce((a, b) => a + b, 0);
+      if (sum <= 16) {
+        return { valid: false, number: cardNumber, error: 'sum_too_low' };
+      }
+
+      return { valid: true, number: cardNumber };
+    }
+
+    function checkCard() {
+      const input = document.getElementById("cardNumber").value;
+      const result = validateCreditCard(input);
+
+      let message = `Card Number: ${result.number}<br>`;
+      if (result.valid) {
+        message += `<span style="color: green;">Valid ✅</span>`;
+      } else {
+        message += `<span style="color: red;">Invalid ❌ - ${result.error.replace(/_/g, ' ')}</span>`;
+      }
+
+      document.getElementById("result").innerHTML = message;
+    }
+  </script>
+
+</body>
+</html>
