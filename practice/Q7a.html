@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Form Info Display</title>
+</head>
+<body>
+  <h2>Student Info Form</h2>
+
+  <form autocomplete="on">
+    Name:
+    <input type="text" id="name" required pattern="[A-Za-z/s]+" /><br><br>
+
+    Email:
+    <input type="email" id="email" placeholder="Enter valid mail id" /><br><br>
+
+    Phone:
+    <input type="tel" id="phone" placeholder="080-555-5555" pattern="\d{3}-\d{3}-\d{4}" /><br><br>
+
+    Semester:
+    <input type="number" id="semester" min="1" max="8" /><br><br>
+
+    Branch:
+    <input list="Dept" id="branch" />
+    <datalist id="Dept">
+      <option value="CSE"></option>
+      <option value="ISE"></option>
+    </datalist><br><br>
+
+    Website:
+    <input type="url" id="website" pattern="http://.*" /><br><br>
+
+    <button onclick="handleSubmit()">Submit</button>
+  </form>
+
+  <script>
+    function handleSubmit() {
+      const name = document.getElementById('name').value;
+      const email = document.getElementById('email').value;
+      const phone = document.getElementById('phone').value;
+      const semester = document.getElementById('semester').value;
+      const branch = document.getElementById('branch').value;
+      const website = document.getElementById('website').value;
+
+      document.write(`
+        <h2>Submitted Information</h2>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Phone:</strong> ${phone}</p>
+        <p><strong>Semester:</strong> ${semester}</p>
+        <p><strong>Branch:</strong> ${branch}</p>
+        <p><strong>Website:</strong> ${website}</p>
+      `);
+    }
+  </script>
+</body>
+</html>

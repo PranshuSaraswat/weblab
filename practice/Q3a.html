@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Enter a number:<input type="number" name="number"><br>
+    <button onclick="checkTax()">Calculate tax</button>
+    
+    <script>
+        function checkTax(){
+            var no=parseInt(document.getElementsByName("number")[0].value);
+            var result=Taxing(no);
+            document.write("The money after tax is :"+result);
+        }
+        const Taxing=generateTax();
+
+        function generateTax(){
+            const tax=0.18;
+            return function(price){
+                return price+(price*tax);
+            }
+        }
+    </script>
+</body>
+</html>

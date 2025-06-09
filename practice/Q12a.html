@@ -1,0 +1,51 @@
+<---stack.js----->
+export class STack{
+    constructor(){
+        this.items=[];
+    }
+    push(elements){
+        this.items.push(elements);
+    }
+    pop(){
+        if(this.isEmpty()){
+            retuen null;
+        }
+        else{
+            return this.items.pop();
+        }
+    }
+    peek(){
+        return this.items[this.items.length-1];
+    }
+    isEmpty(){
+        return (this.items.length===0);
+    }
+}
+
+<---queue.js----->
+export class queue{
+    constructor(){
+        this.items=[];
+    }
+    push(elements){
+        this.items.push(elements);
+    }
+    pop(){
+        if(this.isEmpty()){
+            retuen null;
+        }
+        else{
+            return this.items.shift();
+        }
+    }
+    peek(){
+        return this.items[this.items.length-1];
+    }
+    isEmpty(){
+        return (this.items.length===0);
+    }
+}
+<---server.js--->
+import {stack} from "./stack.js";
+import {Queue} from "./queue.js";
+const stack=new Stack();
